@@ -39,7 +39,7 @@ def init_tracer(service):
 #starter code
 tracer = init_tracer('test-service')
 
-# not entirely sure but I believe there's a flask_opentracing.init_tracing() missing here
+
 redis_opentracing.init_tracing(tracer, trace_all_classes=False)
 
 with tracer.start_span('first-span') as span:
@@ -55,7 +55,7 @@ def hello_world():
 @app.route('/alpha')
 def alpha():
     for i in range(100):
-        do_heavy_work() # removed the colon here since it caused a syntax error - not sure about its purpose?
+        do_heavy_work() 
         if i % 100 == 99:
             time.sleep(10)
     return 'This is the Alpha Endpoint!'
